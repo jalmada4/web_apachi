@@ -18,13 +18,15 @@ $categorias_map = [
 if ($categoriaSeleccionada && isset($categorias_map[$categoriaSeleccionada])) {
     $categoria_id = $categorias_map[$categoriaSeleccionada];
 
-    $stmt = $conn->prepare("SELECT id, titulo, copete, fecha FROM noticias WHERE categorias = ?");
+    $stmt = $conn->prepare("SELECT id, titulo, copete, cuerpo, fecha FROM noticias WHERE categorias = ?");
     if ($stmt) {
         $stmt->bind_param("i", $categoria_id);
         $stmt->execute();
         $resultado = $stmt->get_result();
         while ($row = $resultado->fetch_assoc()) {
-            $noticias[] = $row;
+            if ($row) {
+                $noticias[] = $row;
+            }
         }
         $stmt->close();
     } else {
@@ -40,6 +42,7 @@ if ($categoriaSeleccionada && isset($categorias_map[$categoriaSeleccionada])) {
   <meta charset="UTF-8">
   <title>Noticias por Categoría</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="img/favicon_apachi.ico">
 </head>
 <body>
 <div class="container mt-4">
@@ -60,16 +63,19 @@ if ($categoriaSeleccionada && isset($categorias_map[$categoriaSeleccionada])) {
     <div class="row">
       <?php if (count($noticias) > 0): ?>
         <?php foreach ($noticias as $noticia): ?>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><?= htmlspecialchars($noticia['titulo']) ?></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><?= strftime('%d de %B de %Y', strtotime($noticia['fecha'])) ?></h6>
-                <p class="card-text"><?= mb_substr(strip_tags($noticia['copete']), 0, 100) ?>...</p>
-                <a href="noticia.php?id=<?= $noticia['id'] ?>" class="btn btn-sm btn-outline-success">Leer más</a>
+          <?php if (is_array($noticia)): ?>
+            <div class="col-md-6 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><?= htmlspecialchars($noticia['titulo']) ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?= strftime('%d de %B de %Y', strtotime($noticia['fecha'])) ?></h6>
+                  <p class="card-text"><strong><?= mb_substr(strip_tags($noticia['copete']), 0, 100) ?>...</strong></p>
+                  <p class="card-text"><?= mb_substr(strip_tags($noticia['cuerpo']), 0, 150) ?>...</p>
+                  <a href="noticia.php?id=<?= htmlspecialchars($noticia['id']) ?>" class="btn btn-sm btn-outline-primary">Leer más</a>
+                </div>
               </div>
             </div>
-          </div>
+          <?php endif; ?>
         <?php endforeach; ?>
       <?php else: ?>
         <p>No hay noticias para esta categoría.</p>
