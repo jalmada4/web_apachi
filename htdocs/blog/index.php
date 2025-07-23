@@ -438,11 +438,10 @@ if ($categoriaSeleccionada) {
 
 </main>
 
-<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-  <p class="mb-0">
-    <a href="#">Back to top</a>
-  </p>
+<!--  Footer -->
+<footer class="bg-dark text-white text-center py-4">
+  <p class="mb-1">&copy; <?= date('Y') ?> Noticias Apachin</p>
+  <a href="index.php" class="btn btn-outline-light btn-sm">← Volver al inicio</a>
 </footer>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

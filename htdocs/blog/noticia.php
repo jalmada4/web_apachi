@@ -32,6 +32,20 @@ if (isset($_GET['id'])) {
     <title><?php echo htmlspecialchars($titulo); ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="img/favicon_apachi.ico">
+
+    <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-wrapper {
+    flex: 1;
+  }
+</style>
+
 </head>
 <body>
     <div class="container py-4">
@@ -50,7 +64,12 @@ if (isset($_GET['id'])) {
         <h4 class="mt-4"><strong>Contenido completo:</strong></h4>
         <div><?php echo $cuerpo; ?></div>
 
-        <a href="index.php" class="btn btn-secondary mt-4">Volver al inicio</a>
     </div>
+
+    <!--  Footer -->
+<footer class="bg-dark text-white text-center py-4">
+  <p class="mb-1">&copy; <?= date('Y') ?> Noticias Apachin</p>
+  <a href="index.php" class="btn btn-outline-light btn-sm">← Volver al inicio</a>
+</footer>
 </body>
 </html>

@@ -7,10 +7,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="icon" href="img/favicon_apachi.ico">
+
+  <!--barra de navegacion-->
+<style>
+  #sidebarMenu {
+    width: 250px; /* Podés ajustar este valor a gusto */
+  }
+</style>
+
 </head>
 <body>
 
-<!-- 🔘 Botón de menú sidebar -->
+<!-- Botón de menú sidebar -->
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">

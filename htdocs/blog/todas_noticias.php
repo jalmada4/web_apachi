@@ -61,5 +61,11 @@
       <?php endif; ?>
     </div>
   </div>
+
+  <!--  Footer -->
+<footer class="bg-dark text-white text-center py-4">
+  <p class="mb-1">&copy; <?= date('Y') ?> Noticias Apachin</p>
+  <a href="index.php" class="btn btn-outline-light btn-sm">← Volver al inicio</a>
+</footer>
 </body>
 </html>
