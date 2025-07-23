@@ -14,9 +14,10 @@
     <span class="navbar-brand mx-auto">Noticias Apachin</span>
   </div>
 </nav>
-    <h1 class="mb-4">Todas las noticias</h1>
+    
 
 <div class="container mt-5">
+    <h1 class="mb-4">Todas las noticias</h1>
 <!-- 🧭 Breadcrumb -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
