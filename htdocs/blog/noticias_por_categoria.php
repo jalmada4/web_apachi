@@ -11,7 +11,7 @@ $categorias_map = [
   'eventos' => 3,
   'politica' => 4,
   'sociales' => 5,
-  'sin_categoria' => 6
+  'Varios' => 6
 ];
 
 if ($categoriaSeleccionada && isset($categorias_map[$categoriaSeleccionada])) {
